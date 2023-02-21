@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: bloom-filter
     server: {{ .Values.spec.destination.server }}
-  project: default
+  project: node-apps
   source:
     path: deployment
     repoURL: {{ .Values.spec.source.repoURL }}
