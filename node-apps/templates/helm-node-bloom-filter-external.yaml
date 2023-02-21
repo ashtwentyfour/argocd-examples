@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: bloom-filter-external
+    namespace: bloom-filter
     server: {{ .Values.cluster.server }}
   project: {{ .Values.project.name }}
   source:
