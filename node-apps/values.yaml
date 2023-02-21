@@ -2,5 +2,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/ashtwentyfour/node-bloom-filter-service
+    repoURL: https://github.com/ashtwentyfour/node-bloom-filter-service.git
     targetRevision: HEAD
+
+project:
+  name: node-apps
+  
