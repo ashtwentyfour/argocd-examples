@@ -4,3 +4,10 @@ metadata:
   name: bloom-filter
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bloom-filter-external
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"

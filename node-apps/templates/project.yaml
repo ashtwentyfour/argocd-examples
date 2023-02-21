@@ -12,6 +12,9 @@ spec:
     - name: local-cluster
       namespace: '*'
       server: {{ .Values.spec.destination.server }}
+    - name: {{ .Values.cluster.name }}
+      namespace: '*'
+      server: {{ .Values.cluster.server }}
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
