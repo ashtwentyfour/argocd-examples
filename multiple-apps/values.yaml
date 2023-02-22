@@ -9,6 +9,6 @@ project:
   name: stack-01
 
 cluster: 
-  name: gke_pluralsight-gcp-infrastructure_us-east1-b_cluster-2
-  server: https://35.196.114.52
+  name: gke_pluralsight-gcp-infrastructure_us-east1-b_gke-cluster-2
+  server: https://34.23.87.54
 
