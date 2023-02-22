@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.app.configmap }}
+data:
+  n_items: {{ template "node-bloom-filter.n_items" . }}
+  f_prob: "0.04"

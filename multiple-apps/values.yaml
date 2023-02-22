@@ -6,7 +6,7 @@ spec:
     targetRevision: HEAD
 
 project:
-  name: node-apps
+  name: stack-01
 
 cluster: 
   name: gke_pluralsight-gcp-infrastructure_us-east1-b_cluster-2

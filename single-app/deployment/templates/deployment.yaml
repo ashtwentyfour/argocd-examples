@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+  {{- include "node-bloom-filter.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+    {{- include "node-bloom-filter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+      {{- include "node-bloom-filter.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        env:
+        - name: NEW_RELIC_LICENSE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.app.newrelic.secret }}
+              key: key
+        - name: N_ITEMS
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.app.configmap }}
+              key: n_items
+        - name: F_PROB
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.app.configmap }}
+              key: f_prob   
+        - name: NODE_ENV
+          value: {{ .Values.env }}
+        ports:
+        - containerPort: {{ .Values.app.port }}
+          protocol: TCP
+          name: http
+        livenessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+        readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http

@@ -1,0 +1,15 @@
+app:
+  replicas: 1
+  port: 8080
+  newrelic:
+    secret: newrelic-key
+  configmap: bloom-filter-cm
+
+service:
+  port: 8080
+
+image:
+  repository: ashbourne1990/node-bloom-filter-service
+  tag: latest
+
+env: production
